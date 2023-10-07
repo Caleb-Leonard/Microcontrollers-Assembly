@@ -1,0 +1,25 @@
+# Array Of Squares Program In MIPSzy Assembly Language, A Subset Of MIPS Assembly
+
+addi $t3, $zero, 4 # Add Immediate Instruction Adds 4 To Register $zero And Stores Resultant In Register $t3
+
+Start: # "Start" Label For Program Looping
+
+lw $t2, 0($t0) # Load Word Instruction Copies Memory Data $t0 And Loads Data Into Register $t2
+
+mul $t2, $t2, $t2 # Multiplies Data In $t2 Register By Itself And Stores Resultant Into Register $t2
+
+sw $t2, 0($t1)  # Stores Data Found In Register $t2 In Memory Address Pointed To By Register $t1
+
+lw $t2, 0($t0) # Load Word Instruction Copies Memory Data $t0 And Loads Data Into Register $t2
+
+beq $t2, $t3, End # Branch If Equal Instruction Jumps to Label "End" If Data At Registers $t2 and $t3 Are Equal
+
+addi $t0, $t0, 4 # Add Immediate Instruction Adds 4 To Register $t0 And Stores Resultant In Register $t0
+# Increases Memory Address Used For Input Array By 4 To Be Used In Next Program Loop
+
+addi $t1, $t1, 4 # Add Immediate Instruction Adds 4 To Register $t0 And Stores Resultant In Register $t0
+# Increases Memory Address Used For Output Array By 4 To Be Used In Next Program Loop
+
+j Start # Jump Instruction Jumps To Label "Start"
+
+End: # "End" Label To Jump Towards To End Program
